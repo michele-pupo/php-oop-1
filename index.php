@@ -32,6 +32,16 @@ $film3 = new Movie("Rush", 2013, "Ron Howard");
 $film3->genre = "Sportivo";
 var_dump($film3);
 
+
+// creo un array di film
+$films = [
+    $film1,
+    $film2,
+    $film3
+];
+
+var_dump($films);
+
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +52,18 @@ var_dump($film3);
     <title>Movie</title>
 </head>
 <body>
-    
+    <h1>Film</h1>
+    <ul>
+        <?php 
+            foreach($films as $film){
+                echo "
+                <li> 
+                    ".$film->title.", <br>
+                    ".$film->comingDate.", <br>
+                    ".$film->director."
+                </li>";
+            }
+        ?>
+    </ul>
 </body>
 </html>
