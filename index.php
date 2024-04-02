@@ -16,7 +16,7 @@ class Movie {
          * @param  int $_comingDate
          * @param  string $_director
          */
-        function __construct($_title, $_comingDate, $_director, Genre $_genre) {
+        function __construct($_title, $_comingDate, Director $_director, Genre $_genre) {
             // gli attributi della classe
             $this->title = $_title;
             $this->comingDate = $_comingDate;
@@ -42,7 +42,7 @@ class Genre {
     }
     
     // restitutisce la stringa completa con i generi
-    /**
+    /**cognomenazionalità
      * getGenre
      *
      * @return string
@@ -51,24 +51,60 @@ class Genre {
         return $this->genre1 . ' / ' . $this->genre2;
     }
 }
+
+class Director{
+    public $name;
+    public $surname;
+    public $nationality;
+    
+    /**
+     * __construct
+     *
+     * @param  mixed $_name
+     * @param  mixed $_surname
+     * @param  mixed $_nationality
+     */
+    function __construct($_name, $_surname, $_nationality) {
+        $this->name = $_name;
+        $this->surname = $_surname;
+        $this->nationality = $_nationality;
+    }
+    
+    /**
+     * getDirector
+     *
+     * @return string
+     */
+    public function getDirector(){
+        return $this->name . ' ' . $this->surname .', ' . ' naz: ' . $this->nationality;
+    }
+
+}
+
 // generi film 1
 $film1Genre = new Genre("Romantico","Thriller");
+// regista film 1
+$film1Director = new Director("James","Marsh","Inghilterra");
 // info film 1
-$film1 = new Movie("La teoria del tutto", 2014, "James Marsh", $film1Genre);
+$film1 = new Movie("La teoria del tutto", 2014, $film1Director, $film1Genre);
 
 // var_dump($film1);
 
 // generi film 2
 $film2Genre = new Genre("Trhiller","Guerra");
+// regista film 2
+$film2Director = new Director("Ron","Howard","U.S.A");
 // info film 2
-$film2 = new Movie("A Beautiful Mind", 2001, "Ron Howard", $film2Genre);
+$film2 = new Movie("A Beautiful Mind", 2001, $film2Director, $film2Genre);
 
 // var_dump($film2);
 
 // generi film 3
 $film3Genre = new Genre("Sportivo","Azione");
+// regista film 3
+$film3Director = new Director("Ron","Howard","U.S.A");
 // info film 3
-$film3 = new Movie("Rush", 2013, "Ron Howard", $film3Genre);
+$film3 = new Movie("Rush", 2013, $film3Director, $film3Genre);
 
 // var_dump($film3);
 
@@ -80,7 +116,7 @@ $films = [
     $film3
 ];
 
-var_dump($films);
+// var_dump($films);
 
 ?>
 
@@ -100,7 +136,7 @@ var_dump($films);
                 <li> 
                     Titolo: ".$film->title." <br>
                     Anno: ".$film->comingDate." <br>
-                    Regista: ".$film->director." <br>
+                    Regista: ".$film->director->getDirector()." <br>
                     Genere: " .$film->genre->getGenre(). "
                 </li>";
             }
