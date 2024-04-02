@@ -7,27 +7,29 @@ class Movie {
         public $comingDate;
         public $director;
         public $genre;
+
+        // funzione costruttore
+        function __construct($_title, $_comingDate, $_director) {
+            // gli attributi della classe
+            $this->title = $_title;
+            $this->comingDate = $_comingDate;
+            $this->director = $_director;
+        }
     }
 
-$film1 = new Movie();
-// personalizziamo le proprietà
-$film1->title = "La Teoria Del Tutto";
-$film1->comingDate = "2014";
-$film1->director = "James Marsh";
+$film1 = new Movie("La teoria del tutto", 2014, "James Marsh");
+
+$film1->genre = "Romantico";
 var_dump($film1);
 
-$film2 = new Movie();
-// personalizziamo le proprietà
-$film2->title = "A Beautiful Mind";
-$film2->comingDate = "2001";
-$film2->director = "Ron Howard";
+$film2 = new Movie("A Beautiful Mind", 2001, "Ron Howard");
+
+$film2->genre = "Thriller";
 var_dump($film2);
 
-$film3 = new Movie();
-// personalizziamo le proprietà
-$film3->title = "Rush";
-$film3->comingDate = "2013";
-$film3->director = "Ron Howard";
+$film3 = new Movie("Rush", 2013, "Ron Howard");
+
+$film3->genre = "Sportivo";
 var_dump($film3);
 
 ?>
