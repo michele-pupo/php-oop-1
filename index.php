@@ -1,3 +1,15 @@
+<?php
+
+// definiamo la classe Movie
+class Movie {
+        // dichiariamo le variabili di istanza
+        public $title;
+        public $comingDate;
+        public $director;
+        public $genre;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>
